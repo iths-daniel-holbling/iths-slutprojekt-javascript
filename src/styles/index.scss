@@ -1,5 +1,46 @@
 $body-color: blue;
+$font-family: 'Alegreya';
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-of-it {
   color: $body-color;
+  font-family: $font-family;
+  display: grid;
+  grid-template-columns: 18vw 38vw 38vw;
+  grid-template-rows: 8vh 83vh 5vh;
+  grid-template-areas:
+    "logo . nav"
+    "main main main"
+    "footer footer footer"
+}
+
+
+.logo {
+  grid-area: logo;
+  align-self: center;
+  
+}
+nav{
+  grid-area: nav;
+  justify-self: end;
+  align-self: center;
+  ul {
+    display: flex;
+    li {
+      list-style: none;
+      margin-left: 2rem;
+    }
+  }
+}
+
+.content-wrapper {
+  grid-area: main;
+}
+.footer {
+  grid-area: footer;
 }
