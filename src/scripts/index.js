@@ -7,15 +7,10 @@ async function jsonThisRequestURL(url){
     return myJson;
 }
 
-
-
-
-
 class Quote {
     constructor() {
-        let myJson = jsonThisRequestURL('https://api.quotable.io/random');
-        this.quote = myJson.quote;
-        this.author = myJson.author;
+        this.quote = "";
+        this.author = "";
     }
     
     async updateQuote() {
