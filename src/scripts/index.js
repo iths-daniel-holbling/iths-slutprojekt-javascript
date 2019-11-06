@@ -23,7 +23,7 @@ class Quote {
         return `
         <div class="quote-wrapper">
             <p class="quote">${this.quote}</p>
-            <p class="author">${this.author}</p>
+            <p class="author">- <em>${this.author}</em></p>
         </div>
         `;
     }
@@ -34,7 +34,9 @@ class Quote {
 async function init(){
     let newQuote = new Quote();
     await newQuote.updateQuote();
-    contentWrapper.innerHTML = newQuote.markup();
+    if(newQuote.author !== "Donald Trump"){
+        contentWrapper.innerHTML = newQuote.markup();
+    }
 }
 
 init();
