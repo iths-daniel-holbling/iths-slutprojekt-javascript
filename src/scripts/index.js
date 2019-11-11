@@ -63,7 +63,7 @@ const animate = {
 };
 
 let madlib = {
-    blankNames: ['adjective','adjective','type of bird','room in a house','verb (past tense)','verb','relatives name','noun','a liquid','verb ending in -ing','part of the body (plural preferred)','plural noun','verb ending in -ing','noun'],
+    blankNames: ['adjective','adjective','type of animal','room in a house','verb (past tense)','verb','relatives name','noun','a liquid','verb ending in -ing','part of the body (plural preferred)','plural noun','verb ending in -ing','noun'],
     blanks: [],
     inputRender(){
         contentWrapper.innerHTML = "";

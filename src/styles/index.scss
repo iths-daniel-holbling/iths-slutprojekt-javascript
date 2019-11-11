@@ -17,8 +17,8 @@ body {
   color: $text-color;
   font-family: $font-family;
   display: grid;
-  grid-template-columns: 26vw 30vw 38vw;
-  grid-template-rows: 8vh 83vh 5vh;
+  grid-template-columns: 28vw 30vw 38vw;
+  grid-template-rows: 8vh 85vh 5vh;
   grid-template-areas:
     "header header header"
     "main main main"
@@ -141,6 +141,12 @@ header {
 }
 .footer {
   grid-area: footer;
+  display:flex;
   color: $alt-color1;
   font-family: $font-family;
+  p {
+    padding:0;
+    margin: 0;
+    align-self: flex-end;
+  }
 }
