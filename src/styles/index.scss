@@ -6,6 +6,20 @@ $alt-color2: #6f2232;
 $alt-color3: #950740;
 $font-family: 'Alegreya';
 
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -28,13 +42,19 @@ body {
 header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 50% 50%;
-  .logo {
+  grid-template-columns: 3fr 1fr;
+  .bloc-logo {
     align-self: center;
+    cursor: pointer;
+    display: flex;
     h1 {
+      align-self: center;
+      padding-left: 5px;
+      width: 100%;
       font-weight: bolder;
       cursor:pointer;
       color: $text-color;
+      font-size: 1.7rem;
     }
   }
   nav {
@@ -44,7 +64,7 @@ header {
       display: flex;
       li {
         list-style: none;
-        margin-left: 2rem;
+        margin-left: 1rem;
         cursor: pointer;
         &:hover {
           color: $alt-color3;
@@ -94,7 +114,8 @@ header {
     flex-direction: column;
     input {
       margin-bottom: 3px;
-      width: 40vw;
+      width: 60vw;
+      max-width: 20rem;
       border: none;
       padding: 5px;
       font-family: $font-family;
@@ -114,13 +135,13 @@ header {
     }
     .error {
       background-color: $accent-color;
-      height: 50px;
-      width: 60%;
       font-weight: bolder;
       text-align: center;
       margin: auto;
       padding: 5px;
       margin-top: 10px;
+      animation-name: shake;
+      animation-duration: 0.5s;
     }
   }
   .quote-wrapper {
@@ -149,4 +170,21 @@ header {
     margin: 0;
     align-self: flex-end;
   }
+}
+
+.bloc-logo {
+  width: 100%;
+  height: 50px;
+}
+.bloc-logo canvas {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.logo-mask {
+  position: relative;
+  height: 50px;
+  width: 50px;
 }

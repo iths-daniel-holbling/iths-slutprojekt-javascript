@@ -2,6 +2,8 @@ import '../styles/index.scss';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import anime from 'animejs';
+import Granim from 'granim';
+
 
 
 AOS.init();
@@ -99,13 +101,18 @@ let madlib = {
                 storyWrapper.className = "story";
             }else{
                 if(document.querySelector('.error') === null){
-                    let errorMsg = document.createElement('p');
+                    let errorMsg = document.createElement('div');
                     errorMsg.className = "error";
-                    errorMsg.innerText = "Please fill in all the fields";
+                    errorMsg.innerHTML = "<p>Please fill in all the fields</p>";
                     wrapper.appendChild(errorMsg);
                     emptyFields = false;
+                }else if(document.querySelector('.error') !== null){
+                    let errorMsg = document.querySelector('.error');
+                    anime({
+                        targets: errorMsg,
+                        rotate: '1turn'
+                    });
                 }
-                
             };
         });
         wrapper.appendChild(submit);
@@ -133,6 +140,23 @@ function initEventListeners(){
         animate.in(".content-wrapper");
     });
 }
+
+
+let granimInstance = new Granim({
+    element: '#logo-canvas',
+    direction: 'left-right',
+    states : {
+        "default-state": {
+            gradients: [
+                ['#c3073f', '#950740'],
+                ['#6f2232', '#4e4e50']
+            ],
+            transitionSpeed: 10000
+        }
+    }
+});
+
+
 
 newQuote();
 initEventListeners();
