@@ -93,6 +93,20 @@ let madlib = {
                 }
                 this.blanks.push(field.value);
             }
+
+            let tempBlanks = [];
+            for(let blank in this.blanks){
+                if(blank !== "6"){
+                    let lowerCased = this.blanks[blank].toLowerCase();
+                    tempBlanks.push(lowerCased);
+                }else if(blank === "6"){
+                    let upperCasedTemp = this.blanks[blank];
+                    let upperCased = upperCasedTemp.charAt(0).toUpperCase() + upperCasedTemp.slice(1);
+                    tempBlanks.push(upperCased);
+                }
+            }
+            this.blanks = tempBlanks;
+            
             if(emptyFields === false){
                 contentWrapper.innerHTML = "";
                 let wrapper = document.createElement('div');
