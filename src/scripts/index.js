@@ -1,4 +1,10 @@
 import '../styles/index.scss';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import anime from 'animejs';
+
+
+AOS.init();
 const contentWrapper = document.querySelector('.content-wrapper');
 
 async function jsonThisRequestURL(url){
@@ -22,7 +28,7 @@ class Quote {
     markup() {
         return `
         <div class="quote-wrapper">
-            <p class="quote">${this.quote}</p>
+            <p class="quote" data-aos="fade-left">${this.quote}</p>
             <p class="author">- <em>${this.author}</em></p>
         </div>
         `;
