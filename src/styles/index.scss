@@ -27,6 +27,7 @@ header {
     align-self: center;
     h1 {
       font-weight: bolder;
+      cursor:pointer;
     }
   }
   nav {
@@ -37,6 +38,10 @@ header {
       li {
         list-style: none;
         margin-left: 2rem;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.5;
+        }
       }
     }
   }
