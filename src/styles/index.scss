@@ -25,6 +25,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: $bg-color1;
+  overflow: hidden;
 }
 
 .all-of-it {
@@ -43,31 +44,38 @@ header {
   grid-area: header;
   display: grid;
   grid-template-columns: 3fr 1fr;
+  grid-template-areas: "logo nav";
   .bloc-logo {
+    grid-area: logo;
     align-self: center;
     cursor: pointer;
     display: flex;
+    width: 150px;
     h1 {
       align-self: center;
       padding-left: 5px;
-      width: 100%;
       font-weight: bolder;
       cursor:pointer;
       color: $text-color;
-      font-size: 1.7rem;
+      font-size: 23px;
     }
   }
   nav {
+    grid-area: nav;
     justify-self: end;
     align-self: center;
     ul {
       display: flex;
+      padding:0;
       li {
         list-style: none;
-        margin-left: 1rem;
+        margin-right: 1rem;
         cursor: pointer;
         &:hover {
           color: $alt-color3;
+        }
+        &:last-child {
+          margin-right:0;
         }
       }
     }
@@ -85,26 +93,27 @@ header {
 .content-wrapper {
   grid-area: main;
   display: flex;
-  .story-hidden {
-    justify-self: center;
-    width: 66%;
-    height: 66%;
-    margin: auto;
-    color: $text-color;
-    font-size: 2.5rem;
-    opacity: 0;
-  }
-  .story {
-    justify-self: center;
-    width: 66%;
-    height: 66%;
-    margin: auto;
-    color: $text-color;
-    font-size: 2.5rem;
-    animation-name: make-visible;
-    animation-duration: 1s;
-    strong {
-      color: $accent-color;
+  .story-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .story-hidden {
+      width: 80vw;
+      max-width: 50rem;
+      font-size: 2.5vh;
+      opacity: 0;
+    }
+    .story {
+      width: 80vw;
+      max-width: 50rem;
+      font-size: 2.5vh;
+      animation-name: make-visible;
+      animation-duration: 1s;
+      strong {
+        color: $accent-color;
+      }
     }
   }
   .input-wrapper {
@@ -120,6 +129,7 @@ header {
       padding: 5px;
       font-family: $font-family;
       font-size: 1.25rem;
+      box-shadow: inset 0 0 5px #000000;
     }
     button {
       background-color: $alt-color2;
@@ -149,12 +159,12 @@ header {
     max-width: 50vw;
     .quote {
       font-weight: lighter;
-      font-size: 1.5rem;
+      font-size: 2.5vh;
       color: $accent-color;
     }
     .author {
       text-align: right;
-      font-size: 1rem;
+      font-size: 1.5vh;
       font-weight: lighter;
       color: $text-color;
     }
@@ -165,10 +175,8 @@ header {
   display:flex;
   color: $alt-color1;
   font-family: $font-family;
-  p {
-    padding:0;
-    margin: 0;
-    align-self: flex-end;
+  #github {
+    height:50%;
   }
 }
 

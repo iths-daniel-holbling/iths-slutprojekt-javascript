@@ -51,8 +51,9 @@ const animate = {
     out(targets){
         anime({
             targets: targets,
-            translateX: 250,
-            opacity: 0
+            translateX: 500,
+            opacity: 0,
+            duration: 1000
         });
     },
     in(targets){
@@ -94,9 +95,12 @@ let madlib = {
             }
             if(emptyFields === false){
                 contentWrapper.innerHTML = "";
+                let wrapper = document.createElement('div');
+                wrapper.className = "story-wrapper";
+                contentWrapper.appendChild(wrapper);
                 let storyWrapper = document.createElement('div');
                 storyWrapper.className = "story-hidden";
-                contentWrapper.appendChild(storyWrapper);
+                wrapper.appendChild(storyWrapper);
                 storyWrapper.innerHTML = this.storyMarkup();
                 storyWrapper.className = "story";
             }else{
