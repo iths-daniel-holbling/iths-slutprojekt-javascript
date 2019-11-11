@@ -79,11 +79,40 @@ let madlib = {
         }
         let submit = document.createElement('button');
         submit.innerText = "Create";
+        submit.addEventListener("click", () => {
+            this.blanks = [];
+            let emptyFields = false;
+            let fields = document.querySelectorAll('input');
+            for(let field of fields){
+                if(field.value === ""){
+                    emptyFields = true;
+                    break;
+                }
+                this.blanks.push(field.value);
+            }
+            if(emptyFields === false){
+                contentWrapper.innerHTML = "";
+                let storyWrapper = document.createElement('div');
+                storyWrapper.className = "story-hidden";
+                contentWrapper.appendChild(storyWrapper);
+                storyWrapper.innerHTML = this.storyMarkup();
+                storyWrapper.className = "story";
+            }else{
+                if(document.querySelector('.error') === null){
+                    let errorMsg = document.createElement('p');
+                    errorMsg.className = "error";
+                    errorMsg.innerText = "Please fill in all the fields";
+                    wrapper.appendChild(errorMsg);
+                    emptyFields = false;
+                }
+                
+            };
+        });
         wrapper.appendChild(submit);
     },
     storyMarkup(){
         return `
-        It was a ${this.blanks[0]}, cold November day. I woke up to the ${this.blanks[1]} smell of ${this.blanks[2]} roasting in the ${this.blanks[3]} downstairs. I ${this.blanks[4]} down the stairs to see if I could help ${this.blanks[5]} the dinner. My mom said, "See if ${this.blanks[6]} needs a fresh ${this.blanks[7]}." So I carried a tray of glasses full of ${this.blanks[8]} into the ${this.blanks[9]} room. When I got there, I couldn't believe my ${this.blanks[10]}! There were ${this.blanks[11]} ${this.blanks[12]} on the ${this.blanks[13]}!
+        It was a really <strong data-aos="fade-left" data-aos-delay=500>${this.blanks[0]}</strong>, cold November day. I woke up to the <strong data-aos="fade in" data-aos-delay=600>${this.blanks[1]}</strong> smell of <strong data-aos="fade in" data-aos-delay=700>${this.blanks[2]}</strong> roasting in the <strong data-aos="fade in" data-aos-delay=800>${this.blanks[3]}</strong> downstairs. I <strong data-aos="fade in" data-aos-delay=900>${this.blanks[4]}</strong> down the stairs to see if I could help <strong data-aos="fade in" data-aos-delay=1000>${this.blanks[5]}</strong> the dinner. My mom said, "See if <strong data-aos="fade in" data-aos-delay=1100>${this.blanks[6]}</strong> needs a fresh <strong data-aos="fade in" data-aos-delay=1200>${this.blanks[7]}</strong>." So I carried a tray of glasses full of <strong data-aos="fade in" data-aos-delay=1300>${this.blanks[8]}</strong> into the <strong data-aos="fade in" data-aos-delay=1400>${this.blanks[9]}</strong> room. When I got there, I couldn't believe my <strong data-aos="fade in" data-aos-delay=1500>${this.blanks[10]}</strong>! There were <strong data-aos="fade in" data-aos-delay=1600>${this.blanks[11]}</strong> <strong data-aos="fade in" data-aos-delay=1700>${this.blanks[12]}</strong> on the <strong data-aos="fade in" data-aos-delay=1800>${this.blanks[13]}</strong>!
         `;
     }
 
@@ -105,6 +134,5 @@ function initEventListeners(){
     });
 }
 
-console.log(madlib);
 newQuote();
 initEventListeners();

@@ -53,10 +53,40 @@ header {
     }
   }
 }
+@keyframes make-visible {
+  from {opacity: 0};
+  to {opacity: 1};
+}
+@keyframes make-invisible {
+  from {opacity: 1};
+  to {opacity: 0};
 
+}
 .content-wrapper {
   grid-area: main;
   display: flex;
+  .story-hidden {
+    justify-self: center;
+    width: 66%;
+    height: 66%;
+    margin: auto;
+    color: $text-color;
+    font-size: 2.5rem;
+    opacity: 0;
+  }
+  .story {
+    justify-self: center;
+    width: 66%;
+    height: 66%;
+    margin: auto;
+    color: $text-color;
+    font-size: 2.5rem;
+    animation-name: make-visible;
+    animation-duration: 1s;
+    strong {
+      color: $accent-color;
+    }
+  }
   .input-wrapper {
     display:flex;
     justify-content: center;
@@ -81,6 +111,16 @@ header {
       height: 50px;
       margin: auto;
       margin-top: 20px;
+    }
+    .error {
+      background-color: $accent-color;
+      height: 50px;
+      width: 60%;
+      font-weight: bolder;
+      text-align: center;
+      margin: auto;
+      padding: 5px;
+      margin-top: 10px;
     }
   }
   .quote-wrapper {
