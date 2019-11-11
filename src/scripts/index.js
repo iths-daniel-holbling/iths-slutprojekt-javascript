@@ -35,33 +35,6 @@ class Quote {
     }
 }
 
-const animate = {
-    pageOut(targets){
-        anime({
-            targets: targets,
-            translateX: 250,
-            opacity: 0
-        });
-    },
-    pageIn(targets){
-        anime({
-            targets: targets,
-            translateX: 0,
-            opacity: 1
-        });
-    }
-};
-
-function initEventListeners(){
-    let home = document.querySelector('#home');
-    home.addEventListener('click', async () => {
-        // animate.pageOut(contentWrapper);
-        animate.pageOut(".content-wrapper");
-        await newQuote();
-        animate.pageIn(contentWrapper);
-    });
-}
-
 async function newQuote(){
     let newQuote = new Quote();
     await newQuote.updateQuote();
@@ -70,6 +43,47 @@ async function newQuote(){
     }else{
         newQuote();
     }
+}
+
+const animate = {
+    out(targets){
+        anime({
+            targets: targets,
+            translateX: 250,
+            opacity: 0
+        });
+    },
+    in(targets){
+        anime({
+            targets: targets,
+            translateX: 0,
+            opacity: 1
+        });
+    }
+};
+
+class Madlib {
+    constructor(blanks,story) {
+        this.numberOfBlanks = blanks.length;
+        this.blankNames = blanks;
+        this.story =  story;
+    }
+
+
+}
+
+function initEventListeners(){
+    let home = document.querySelector('#home');
+    let madlibs = document.querySelector('#madlibs');
+    home.addEventListener('click', async () => {
+        animate.out(".content-wrapper");
+        await newQuote();
+        animate.in(".content-wrapper");
+    });
+    madlibs.addEventListener('click', () => {
+        animate.out(".content-wrapper");
+    });
+
 }
 
 newQuote();

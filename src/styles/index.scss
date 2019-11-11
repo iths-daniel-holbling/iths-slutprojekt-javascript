@@ -1,14 +1,20 @@
-$body-color: black;
+$text-color: white;
+$accent-color: #c3073f;
+$bg-color1: #1a1a1d;
+$alt-color1: #4e4e50;
+$alt-color2: #6f2232;
+$alt-color3: #950740;
 $font-family: 'Alegreya';
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $bg-color1;
 }
 
 .all-of-it {
-  color: $body-color;
+  color: $text-color;
   font-family: $font-family;
   display: grid;
   grid-template-columns: 26vw 30vw 38vw;
@@ -28,6 +34,7 @@ header {
     h1 {
       font-weight: bolder;
       cursor:pointer;
+      color: $text-color;
     }
   }
   nav {
@@ -40,7 +47,7 @@ header {
         margin-left: 2rem;
         cursor: pointer;
         &:hover {
-          opacity: 0.5;
+          color: $alt-color3;
         }
       }
     }
@@ -54,15 +61,19 @@ header {
     margin:auto;
     max-width: 50vw;
     .quote {
-      font-weight: bold;
+      font-weight: lighter;
       font-size: 1.5rem;
+      color: $accent-color;
     }
     .author {
       text-align: right;
       font-size: 1rem;
+      font-weight: lighter;
+      color: $text-color;
     }
   }
 }
 .footer {
   grid-area: footer;
+  color: $alt-color1;
 }
