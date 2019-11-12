@@ -66,7 +66,7 @@ const animate = {
 };
 
 let madlib = {
-    blankNames: ['adjective','adjective','type of animal','room in a house','verb (past tense)','verb','relatives name','noun','a liquid','verb ending in -ing','part of the body (plural preferred)','plural noun','verb ending in -ing','noun'],
+    blankNames: ['adjective','adjective','type of animal','room in a house','verb (past tense)','verb','relatives name','noun','a liquid','verb ending in -ing','bodypart','plural noun','verb ending in -ing','noun'],
     blanks: [],
     inputRender(){
         contentWrapper.innerHTML = "";
@@ -137,7 +137,34 @@ let madlib = {
     },
     storyMarkup(){
         return `
-        It was a really <strong data-aos="fade-left" data-aos-delay=500>${this.blanks[0]}</strong>, cold November day. I woke up to the <strong data-aos="fade in" data-aos-delay=600>${this.blanks[1]}</strong> smell of <strong data-aos="fade in" data-aos-delay=700>${this.blanks[2]}</strong> roasting in the <strong data-aos="fade in" data-aos-delay=800>${this.blanks[3]}</strong> downstairs. I <strong data-aos="fade in" data-aos-delay=900>${this.blanks[4]}</strong> down the stairs to see if I could help <strong data-aos="fade in" data-aos-delay=1000>${this.blanks[5]}</strong> the dinner. My mom said, "See if <strong data-aos="fade in" data-aos-delay=1100>${this.blanks[6]}</strong> needs a fresh <strong data-aos="fade in" data-aos-delay=1200>${this.blanks[7]}</strong>." So I carried a tray of glasses full of <strong data-aos="fade in" data-aos-delay=1300>${this.blanks[8]}</strong> into the <strong data-aos="fade in" data-aos-delay=1400>${this.blanks[9]}</strong> room. When I got there, I couldn't believe my <strong data-aos="fade in" data-aos-delay=1500>${this.blanks[10]}</strong>! There were <strong data-aos="fade in" data-aos-delay=1600>${this.blanks[11]}</strong> <strong data-aos="fade in" data-aos-delay=1700>${this.blanks[12]}</strong> on the <strong data-aos="fade in" data-aos-delay=1800>${this.blanks[13]}</strong>!
+        It was a really 
+        <strong data-aos="fade in" data-aos-delay=500>${this.blanks[0]}</strong>
+        , cold November day. I woke up to the 
+        <strong data-aos="fade in" data-aos-delay=600>${this.blanks[1]}</strong> 
+        smell of 
+        <strong data-aos="fade in" data-aos-delay=700>${this.blanks[2]}</strong> 
+        roasting in the 
+        <strong data-aos="fade in" data-aos-delay=800>${this.blanks[3]}</strong> 
+        downstairs. I 
+        <strong data-aos="fade in" data-aos-delay=900>${this.blanks[4]}</strong> 
+        down the stairs to see if I could help 
+        <strong data-aos="fade in" data-aos-delay=1000>${this.blanks[5]}</strong> 
+        the dinner. My mom said, "See if 
+        <strong data-aos="fade in" data-aos-delay=1100>${this.blanks[6]}</strong> 
+        needs a fresh 
+        <strong data-aos="fade in" data-aos-delay=1200>${this.blanks[7]}</strong>
+        ." So I carried a tray of glasses full of 
+        <strong data-aos="fade in" data-aos-delay=1300>${this.blanks[8]}</strong> 
+        into the 
+        <strong data-aos="fade in" data-aos-delay=1400>${this.blanks[9]}</strong> 
+        room. When I got there, I couldn't believe my 
+        <strong data-aos="fade in" data-aos-delay=1500>${this.blanks[10]}</strong>
+        ! There were 
+        <strong data-aos="fade in" data-aos-delay=1600>${this.blanks[11]}</strong> 
+        <strong data-aos="fade in" data-aos-delay=1700>${this.blanks[12]}</strong> 
+        on the 
+        <strong data-aos="fade in" data-aos-delay=1800>${this.blanks[13]}</strong>
+        !
         `;
     }
 
