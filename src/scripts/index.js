@@ -72,13 +72,16 @@ let madlib = {
         contentWrapper.innerHTML = "";
         let wrapper = document.createElement('div');
         wrapper.className = "input-wrapper";
+        let fieldsWrapper = document.createElement('div');
+        fieldsWrapper.className = "fields-wrapper";
         contentWrapper.appendChild(wrapper);
+        wrapper.appendChild(fieldsWrapper);
         for(let blankName of this.blankNames){
             let input = document.createElement('input');
             input.setAttribute("type","text");
             input.setAttribute("placeholder",blankName);
             input.setAttribute("data-aos","fade-up");
-            wrapper.appendChild(input);
+            fieldsWrapper.appendChild(input);
         }
         let submit = document.createElement('button');
         submit.innerText = "Create";

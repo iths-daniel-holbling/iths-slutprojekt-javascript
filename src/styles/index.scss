@@ -125,9 +125,16 @@ header {
     flex-direction: column;
     flex-wrap: wrap;
     height:100%;
+    .fields-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 96vw;
+      max-width: 50rem;
+    }
     input {
       margin-bottom: 3px;
-      width: 35vw;
+      width: 45vw;
       max-width: 20rem;
       border: none;
       padding: 5px;
