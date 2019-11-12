@@ -192,11 +192,28 @@ const about = {
     }
 };
 
+const contact = {
+    markup(){
+        return `
+            <div class="contact">
+                <h1 data-aos="fade-in">You can reach me via</h1>
+                <a href="https://github.com/iths-daniel-holbling">
+                <img src="/public/img/GitHub_Logo_White.png" alt="github logo" data-aos="fade-in" data-aos-delay=100>
+                </a>
+                <h1 data-aos="fade-in" data-aos-delay=200>or</h1>
+                <a href="https://www.linkedin.com/in/danielholbling/">
+                <img src="/public/img/LI-Logo.png" alt="linkedin logo" data-aos="fade-in" data-aos-delay=300>
+                </a>
+            </div>
+        `;
+    }
+};
 
 function initEventListeners(){
     let home = document.querySelector('#home');
     let madlibs = document.querySelector('#madlibs');
     let aboutBtn = document.querySelector('#about');
+    let contactBtn = document.querySelector('#contact');
     home.addEventListener('click', async () => {
         animate.out(".content-wrapper");
         await newQuote();
@@ -210,6 +227,11 @@ function initEventListeners(){
     aboutBtn.addEventListener('click', () => {
         animate.out(".content-wrapper");
         contentWrapper.innerHTML = about.markup();
+        animate.in(".content-wrapper");
+    });
+    contactBtn.addEventListener('click', () => {
+        animate.out(".content-wrapper");
+        contentWrapper.innerHTML = contact.markup();
         animate.in(".content-wrapper");
     });
 }
