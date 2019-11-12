@@ -170,13 +170,33 @@ let madlib = {
         !
         `;
     }
-
-
 };
+
+const about = {
+    age(){
+        let currentYear = new Date().getFullYear();
+        return currentYear - 1983;
+    },
+    markup(){
+        return `
+            <div class="profile">
+                <div class="picture" data-aos="zoom-in"></div>
+                <h1 class="name" data-aos="slide-left">Daniel Hölbling</h1>
+                <h4 data-aos="slide-right">Front End Developer in the making</h4>
+                <p data-aos="fade-left" data-aos-delay=200>${this.age()} years old</p>
+                <p data-aos="fade-right" data-aos-delay=250>Married man</p>
+                <p data-aos="fade-left" data-aos-delay=300>Gadget man</p>
+                <p data-aos="fade-right" data-aos-delay=350>Cat man</p>
+            </div>
+        `;
+    }
+};
+
 
 function initEventListeners(){
     let home = document.querySelector('#home');
     let madlibs = document.querySelector('#madlibs');
+    let aboutBtn = document.querySelector('#about');
     home.addEventListener('click', async () => {
         animate.out(".content-wrapper");
         await newQuote();
@@ -185,6 +205,11 @@ function initEventListeners(){
     madlibs.addEventListener('click', () => {
         animate.out(".content-wrapper");
         madlib.inputRender();
+        animate.in(".content-wrapper");
+    });
+    aboutBtn.addEventListener('click', () => {
+        animate.out(".content-wrapper");
+        contentWrapper.innerHTML = about.markup();
         animate.in(".content-wrapper");
     });
 }

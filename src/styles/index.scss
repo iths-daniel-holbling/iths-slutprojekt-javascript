@@ -94,6 +94,38 @@ header {
 .content-wrapper {
   grid-area: main;
   display: flex;
+  .profile {
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .picture {
+      background-image: url('/public/img/profil.jpg');
+      background-size: 105%;
+      background-repeat: no-repeat;
+      width: 50vw;
+      height: 50vw;
+      max-width: 25rem;
+      max-height: 25rem;
+      border-radius: 50%;
+      background-blend-mode: lighten;
+    }
+    .name {
+      font-size: 3rem;
+      margin: 0;
+    }
+    h4 {
+      margin: 0;
+      letter-spacing: 0.1rem;
+      color: $alt-color1;
+      position: relative;
+      top: -15px;
+      right: 10px;
+    }
+    p {
+      margin:0;
+    }
+  }
   .story-wrapper {
     display: flex;
     justify-content: center;
@@ -179,15 +211,6 @@ header {
       font-weight: lighter;
       color: $text-color;
     }
-  }
-}
-.footer {
-  grid-area: footer;
-  display:flex;
-  color: $alt-color1;
-  font-family: $font-family;
-  #github {
-    height:50%;
   }
 }
 
