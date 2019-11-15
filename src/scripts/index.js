@@ -49,18 +49,41 @@ async function newQuote(){
 
 const animate = {
     out(targets){
-        anime({
-            targets: targets,
-            translateX: 500,
-            opacity: 0,
-            duration: 1000
+        return new Promise(  (resolve,reject) => {
+            anime({
+                targets: targets,
+                translateX: 1350,
+                opacity: 0,
+                duration: 500,
+                complete: resolve
+            });
+        });
+    },
+    outFade(targets){
+        return new Promise((resolve, reject) => {
+            anime({
+                targets: targets,
+                opacity: 0,
+                duration: 250,
+                complete: resolve
+            });
         });
     },
     in(targets){
         anime({
             targets: targets,
             translateX: 0,
-            opacity: 1
+            opacity: 1,
+            duration: 500
+        });
+    },
+    inFast(targets){
+        anime({
+            targets: targets,
+            translateX: 0,
+            opacity: 1,
+            duration: 250,
+            easing: 'easeInOutCirc'
         });
     }
 };
@@ -81,10 +104,13 @@ let madlib = {
             input.setAttribute("type","text");
             input.setAttribute("placeholder",blankName);
             input.setAttribute("data-aos","fade-up");
+            input.setAttribute("data-aos-delay",200);
             fieldsWrapper.appendChild(input);
         }
         let submit = document.createElement('button');
         submit.innerText = "Create";
+        submit.setAttribute("data-aos","fade-up");
+        submit.setAttribute("data-aos-delay",200);
         submit.addEventListener("click", () => {
             this.blanks = [];
             let emptyFields = false;
@@ -180,13 +206,13 @@ const about = {
     markup(){
         return `
             <div class="profile">
-                <div class="picture" data-aos="zoom-in"></div>
-                <h1 class="name" data-aos="slide-left">Daniel Hölbling</h1>
-                <h4 data-aos="slide-right">Front End Developer in the making</h4>
-                <p data-aos="fade-left" data-aos-delay=200>${this.age()} years old</p>
-                <p data-aos="fade-right" data-aos-delay=250>Married man</p>
-                <p data-aos="fade-left" data-aos-delay=300>Gadget man</p>
-                <p data-aos="fade-right" data-aos-delay=350>Cat man</p>
+                <div class="picture" data-aos="zoom-in" data-aos-delay=350></div>
+                <h1 class="name" data-aos="fade-left" data-aos-delay=400>Daniel Hölbling</h1>
+                <h4 data-aos="fade-right" data-aos-delay=450>Front End Developer in the making</h4>
+                <p data-aos="fade-left" data-aos-delay=400>${this.age()} years old</p>
+                <p data-aos="fade-right" data-aos-delay=450>Married man</p>
+                <p data-aos="fade-left" data-aos-delay=500>Gadget man</p>
+                <p data-aos="fade-right" data-aos-delay=550>Cat man</p>
             </div>
         `;
     }
@@ -196,13 +222,13 @@ const contact = {
     markup(){
         return `
             <div class="contact">
-                <h1 data-aos="fade-in">You can reach me via</h1>
+                <h1 data-aos="fade-in" data-aos-delay=200>You can reach me via</h1>
                 <a href="https://github.com/iths-daniel-holbling">
-                <img src="/public/img/GitHub_Logo_White.png" alt="github logo" data-aos="fade-in" data-aos-delay=100>
+                <img src="/public/img/GitHub_Logo_White.png" alt="github logo" data-aos="fade-in" data-aos-delay=300>
                 </a>
-                <h1 data-aos="fade-in" data-aos-delay=200>or</h1>
+                <h1 data-aos="fade-in" data-aos-delay=400>or</h1>
                 <a href="https://www.linkedin.com/in/danielholbling/">
-                <img src="/public/img/LI-Logo.png" alt="linkedin logo" data-aos="fade-in" data-aos-delay=300>
+                <img src="/public/img/LI-Logo.png" alt="linkedin logo" data-aos="fade-in" data-aos-delay=500>
                 </a>
             </div>
         `;
@@ -215,22 +241,22 @@ function initEventListeners(){
     let aboutBtn = document.querySelector('#about');
     let contactBtn = document.querySelector('#contact');
     home.addEventListener('click', async () => {
-        animate.out(".content-wrapper");
+        await animate.out(".content-wrapper");
         await newQuote();
         animate.in(".content-wrapper");
     });
-    madlibs.addEventListener('click', () => {
-        animate.out(".content-wrapper");
+    madlibs.addEventListener('click', async () => {
+        await animate.outFade(".content-wrapper");
         madlib.inputRender();
-        animate.in(".content-wrapper");
+        animate.inFast(".content-wrapper");
     });
-    aboutBtn.addEventListener('click', () => {
-        animate.out(".content-wrapper");
+    aboutBtn.addEventListener('click', async () => {
+        await animate.out(".content-wrapper");
         contentWrapper.innerHTML = about.markup();
         animate.in(".content-wrapper");
     });
-    contactBtn.addEventListener('click', () => {
-        animate.out(".content-wrapper");
+    contactBtn.addEventListener('click', async () => {
+        await animate.out(".content-wrapper");
         contentWrapper.innerHTML = contact.markup();
         animate.in(".content-wrapper");
     });
