@@ -1,8 +1,9 @@
 # Slutprojekt JavaScript
 
 ## Description
-- Portfolio page that does stuff with javascript.
+- Single page portfolio heavily reliant on javascript.
 - Built with webpack and npm modules
+- Works in mobile and desktop
 
 
 ## Features
