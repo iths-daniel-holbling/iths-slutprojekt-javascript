@@ -26,6 +26,9 @@ body {
   align-items: center;
   background-color: $bg-color1;
   overflow: hidden;
+  background-image: url('/public/img/bgimage.jpg'), linear-gradient(to bottom, #000000 0%, $bg-color1 100%);
+  background-size: cover;
+  background-blend-mode: soft-light;
 }
 
 .all-of-it {
@@ -121,10 +124,12 @@ header {
       max-height: 25rem;
       border-radius: 50%;
       background-blend-mode: lighten;
+      box-shadow: inset 5px 10px 20px 10px $bg-color1;
     }
     .name {
       font-size: 3rem;
       margin: 0;
+      text-shadow: 0 0 10px rgba(255,255,255,.5), 0 0 5px rgba(255,255,255,.5);
     }
     h4 {
       margin: 0;
@@ -182,6 +187,7 @@ header {
       max-width: 20rem;
       border: none;
       padding: 5px;
+      margin: 5px;
       font-family: $font-family;
       font-size: 1.25rem;
       box-shadow: inset 0 0 5px #000000;
@@ -198,6 +204,8 @@ header {
     height: 50px;
     margin: auto;
     margin-top: 20px;
+    box-shadow: inset 0 0 5px $bg-color1;
+    box-shadow: 0 0 5px $accent-color;
   }
   .error {
     background-color: $accent-color;
