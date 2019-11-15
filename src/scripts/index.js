@@ -111,7 +111,7 @@ let madlib = {
         submit.innerText = "Create";
         submit.setAttribute("data-aos","fade-up");
         submit.setAttribute("data-aos-delay",200);
-        submit.addEventListener("click", () => {
+        submit.addEventListener("click", async () => {
             this.blanks = [];
             let emptyFields = false;
             let fields = document.querySelectorAll('input');
@@ -137,15 +137,17 @@ let madlib = {
             this.blanks = tempBlanks;
             
             if(emptyFields === false){
+                await animate.out(".content-wrapper");
                 contentWrapper.innerHTML = "";
                 let wrapper = document.createElement('div');
                 wrapper.className = "story-wrapper";
                 contentWrapper.appendChild(wrapper);
                 let storyWrapper = document.createElement('div');
                 storyWrapper.className = "story-hidden";
-                wrapper.appendChild(storyWrapper);
                 storyWrapper.innerHTML = this.storyMarkup();
                 storyWrapper.className = "story";
+                wrapper.appendChild(storyWrapper);
+                animate.inFast(".content-wrapper");
             }else{
                 if(document.querySelector('.error') === null){
                     let errorMsg = document.createElement('div');
